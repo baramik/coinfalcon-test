@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descriptor: MyString
+  address_pool: one
+  user: one
+
+two:
+  descriptor: MyString
+  address_pool: two
+  user: two
