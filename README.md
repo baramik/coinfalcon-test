@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Setup database
+bundle exec rails db:setup
 
-Things you may want to cover:
+#generate default address pool initially run
+bundle exec rails rake pool:generate
 
-* Ruby version
+#TO RUN APP
+bundle exec rails s
 
-* System dependencies
 
-* Configuration
+API is using JWT authentication 
 
-* Database creation
+1. You need to get the token issued. POST /api/users/sign_in.json. Required params: {"user": {"email": "", "password": ""}}. You'll get {"auth_token":"eyJh..."} in case of success response
 
-* Database initialization
+2. To assign new address for user you can send POST /api/users/create_address.json. Required headers: Authentication: <YOUR_AUTH_TOKEN>
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3. You can also view current user address  GET /api/users/create_address.json. Required headers: Authentication: <YOUR_AUTH_TOKEN>

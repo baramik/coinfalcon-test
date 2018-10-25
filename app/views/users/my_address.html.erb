@@ -1,0 +1,4 @@
+<p>Current Assigned address: 
+  <h1 class="current_address"><%= @current_assigned_address %><h1>
+  <%= link_to  "Assign New Address", assign_address_users_path, method: :post, class: 'assign_address', remote: true %>
+</p>

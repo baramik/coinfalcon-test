@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
          :confirmable
+
+  has_one :address, dependent: :destroy
+  
+  delegate :descriptor, to: :address, prefix: true, allow_nil: true
 end

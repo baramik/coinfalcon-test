@@ -1,4 +1,4 @@
-class PoolUpdaterService
+class PoolUpdate < Rectify::Command
   def initialize(pool, max_pool_size = 10)
     @pool = pool
     @max_pool_size = max_pool_size
@@ -9,11 +9,10 @@ class PoolUpdaterService
 
   def call
     generate_pool_addresses
+    broadcast(:success, DateTime.now)
   end
 
   private
-
-  
 
   def generate_pool_addresses
     count_to_generate.times { pool.addresses.create! }

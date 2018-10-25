@@ -12,7 +12,9 @@ class Address < ApplicationRecord
   end 
 
   def recalculate_unassigned_pool_count
-    return address_pool.update!(unassigned_address_count:  address_pool.unassigned_address_count - 1) if address_pool.addresses.any? && user
-    address_pool.update!(unassigned_address_count:  address_pool.unassigned_address_count + 1) if new_record?
+    if address_pool.addresses.any? && user 
+      return address_pool.update!(unassigned_address_count:  address_pool.unassigned_address_count - 1)
+    end
+    address_pool.update!(unassigned_address_count:  address_pool.unassigned_address_count + 1)
   end
 end
