@@ -1,14 +1,16 @@
 # README
 
-#Setup database
+#Setup database: 
+
 bundle exec rails db:setup
 
-#generate default address pool initially run
+#generate default address pool initially run:
+
 bundle exec rails rake pool:generate
 
-#TO RUN APP
-bundle exec rails s
+#TO RUN APP:
 
+bundle exec rails s
 
 API is using JWT authentication 
 
